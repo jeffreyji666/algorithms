@@ -46,4 +46,33 @@ public class QuickSort {
         }
         System.out.println();
     }
+
+    public static int partition(int[] a, int left, int right) {
+        int temp;
+
+        temp = a[left];
+        while (left < right) {
+            while (left < right && a[right] >= temp)
+                --right;
+            a[left] = a[right];
+
+            while (left < right && a[left] <= temp)
+                ++left;
+            a[right] = a[left];
+        }
+        a[left] = temp;
+
+        return left;
+    }
+
+    public static void quickSort(int[] a, int left, int right) {
+        int pivot;
+
+        if (left >= right)
+            return;
+
+        pivot = partition(a, left, right);
+        quickSort(a, left, pivot - 1);
+        quickSort(a, pivot + 1, right);
+    }
 }
