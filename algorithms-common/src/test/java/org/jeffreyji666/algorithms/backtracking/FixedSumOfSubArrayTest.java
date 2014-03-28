@@ -1,6 +1,6 @@
 package org.jeffreyji666.algorithms.backtracking;
 
-import org.jeffreyji.algorithms.backtrackint.FixedSumOfSubArray;
+import org.jeffreyji.algorithms.backtracking.FixedSumOfSubArray;
 import org.junit.Test;
 
 /**

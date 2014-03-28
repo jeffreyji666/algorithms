@@ -1,4 +1,4 @@
-package org.jeffreyji.algorithms.backtrackint;
+package org.jeffreyji.algorithms.backtracking;
 
 /**
  * @author: wgji
@@ -15,6 +15,8 @@ public class FixedSumOfSubArray {
      * @param sum
      */
     public static void getCombination(int[] a, int t, int sum) {
+        System.out.printf("getCombination:%d,%d", t, sum);
+        System.out.println();
         if (sum == 0) {
             for (int i = 0; i < t; i++) {
                 if (flag[i]) {
