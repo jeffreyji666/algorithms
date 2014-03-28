@@ -3,7 +3,7 @@ package org.jeffreyji.algorithms.backtrackint;
 /**
  * @author: wgji
  * @date：2014年3月27日 下午6:04:36
- * @comment:给定一个数组，给出和为某值的子数组，如给出数组3, 2, 4, 1, 6，和为7的子数组为：{3，4},{2,4,1},{1,6}
+ * @comment:给定一个数组，给出和为某值的子数组，如给出数组3, 2, 4, 1, 6，和为7的子数组为：{3，4},{2,4,1},{1,6} 利用回溯算法解决
  */
 public class FixedSumOfSubArray {
     private static boolean[] flag = new boolean[100];
