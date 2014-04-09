@@ -15,7 +15,7 @@ public class FixedSumOfSubArray {
      * @param sum
      */
     public static void getCombination(int[] a, int t, int sum) {
-        System.out.printf("getCombination:%d,%d", t, sum);
+        System.out.printf("getCombination:%b,%d,%d", flag[t > 0 ? t - 1 : t], t, sum);
         System.out.println();
         if (sum == 0) {
             for (int i = 0; i < t; i++) {
