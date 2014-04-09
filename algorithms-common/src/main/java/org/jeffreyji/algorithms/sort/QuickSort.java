@@ -68,12 +68,10 @@ public class QuickSort {
     }
 
     public static void quickSort2(int[] a, int left, int right) {
-        int pivot;
-
         if (left >= right)
             return;
 
-        pivot = partition(a, left, right);
+        int pivot = partition(a, left, right);
         quickSort2(a, left, pivot - 1);
         quickSort2(a, pivot + 1, right);
     }
