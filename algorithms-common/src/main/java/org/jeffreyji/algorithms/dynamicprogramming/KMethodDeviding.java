@@ -55,6 +55,7 @@ public class KMethodDeviding {
         }
         for (int i = base; i <= remainingSum; i++) {
             int d = dp(remainingSum - i, i, n - currentIndex - 1);
+            System.out.println("--------" + d);
             if (remainingKth <= d) {
                 result[currentIndex] = i;
                 dfs(i, currentIndex + 1, remainingSum - i, remainingKth);
@@ -87,6 +88,7 @@ public class KMethodDeviding {
         int ret = 0;
         for (int i = base; i <= remainingSum; i++) {
             ret += dp(remainingSum - i, i, numberOfParts - 1);
+            System.out.println("*******" + ret);
         }
         memo[remainingSum][base][numberOfParts] = ret;
         return ret;
