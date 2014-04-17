@@ -57,7 +57,7 @@ import java.math.BigInteger;
 public class FibonacciGame {
     public static void main(String[] args) {
         boolean win = isFibonacciNumber(new BigInteger("10000000"));
-        System.out.println(win ? "win" : "lose");
+        System.out.println(win ? "lose" : "win");
     }
 
     private static boolean isFibonacciNumber(BigInteger m) {
