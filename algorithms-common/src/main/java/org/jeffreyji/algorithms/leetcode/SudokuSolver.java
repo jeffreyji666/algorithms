@@ -1,4 +1,4 @@
-package org.jeffreyji666.algorithms.backtracking;
+package org.jeffreyji.algorithms.leetcode;
 
 /**
  * @author: wgji
@@ -32,7 +32,11 @@ public class SudokuSolver {
         dfs(board, 0, 0);
     }
 
+    private static int i = 0;
+
     public static boolean dfs(char[][] board, int x, int y) {
+        System.out.printf("dfs board at the %d time with %d,%d", ++i, x, y);
+        System.out.println();
         if (x > 8 || y > 8) { // 全部深搜完毕
             return true;
         }
@@ -46,7 +50,8 @@ public class SudokuSolver {
                         nextY = 0;
                         nextX++;
                     }
-                    if (dfs(board, nextX, nextY)) { // 对下一个空格搜索数字，如果下一个位置找到满足条件的数字，就此返回。否则改变当前空格的数字继续测试
+                    // 对下一个空格搜索数字，如果下一个位置找到满足条件的数字，就此返回。否则改变当前空格的数字继续测试
+                    if (dfs(board, nextX, nextY)) {
                         return true;
                     }
                     board[x][y] = '.';
@@ -74,12 +79,8 @@ public class SudokuSolver {
                 return false;
             }
         }
-        System.out.printf("--------%d,%d",x,y);
-        System.out.println();
         for (int i = 0; i < 3; i++) { // 九宫格检查
             for (int j = 0; j < 3; j++) {
-                System.out.printf("[%d][%d]", 3 * (x / 3) + i, 3 * (y / 3) + j);
-                System.out.println();
                 if (board[3 * (x / 3) + i][3 * (y / 3) + j] == k) {
                     return false;
                 }

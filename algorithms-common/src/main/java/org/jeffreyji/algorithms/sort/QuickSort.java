@@ -12,25 +12,25 @@ public class QuickSort {
         quickSort1(x, 0, x.length - 1);
     }
 
-    public static void quickSort1(int[] x, int l, int u) {
-        int i, m;
-        if (l >= u) {
+    public static void quickSort1(int[] x, int left, int right) {
+        int i, middle;
+        if (left >= right) {
             return;
         }
-        m = l;
-        for (i = l + 1; i <= u; i++) {
-            if (x[i] < x[l]) { // buggy!
-                swap(x, ++m, i);
+        middle = left;
+        for (i = left + 1; i <= right; i++) {
+            if (x[i] < x[left]) { // buggy!
+                swap(x, ++middle, i);
             }
         }
         printArray(x);
-        System.out.println("before swap xl:" + x[l] + ", xm:" + x[m]);
-        swap(x, l, m);
+        System.out.println("before swap xl:" + x[left] + ", xm:" + x[middle]);
+        swap(x, left, middle);
         printArray(x);
 
         System.out.println("----------------------");
-        quickSort1(x, l, m - 1);
-        quickSort1(x, m + 1, u);
+        quickSort1(x, left, middle - 1);
+        quickSort1(x, middle + 1, right);
 
     }
 
@@ -48,16 +48,16 @@ public class QuickSort {
     }
 
     private static int partition(int[] a, int left, int right) {
-        int temp;
-
-        temp = a[left];
+        int temp = a[left];
         while (left < right) {
-            while (left < right && a[right] >= temp)
+            while (left < right && a[right] >= temp) {
                 --right;
+            }
             a[left] = a[right];
 
-            while (left < right && a[left] <= temp)
+            while (left < right && a[left] <= temp) {
                 ++left;
+            }
             a[right] = a[left];
         }
         a[left] = temp;

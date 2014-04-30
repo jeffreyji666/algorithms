@@ -1112,10 +1112,5 @@ public class BinaryTree {
             this.height = height;
             this.isFull = isFull;
         }
-
-        public boolean equalsTo(Pair obj){
-            return this.height==obj.height && this.isFull==obj.isFull;
-        }
     }
-    
 }
