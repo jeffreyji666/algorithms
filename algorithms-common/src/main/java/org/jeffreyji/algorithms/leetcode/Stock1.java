@@ -9,7 +9,7 @@ package org.jeffreyji.algorithms.leetcode;
  */
 public class Stock1 {
     public static void main(String[] args) {
-        int[] prices = { 1,2,3,4,5,6 };
+        int[] prices = { 1, 2, 3, 4, 5, 6 };
         System.out.println(maxProfit(prices));
     }
 
