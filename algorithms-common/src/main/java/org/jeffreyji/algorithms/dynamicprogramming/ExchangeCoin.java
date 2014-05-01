@@ -3,7 +3,8 @@ package org.jeffreyji.algorithms.dynamicprogramming;
 /**
  * @author: wgji
  * @date：2014年4月30日 下午3:18:09
- * @comment:有面值为1元、3元和5元的硬币若干枚，如何用最少的硬币凑够11元? (表面上这道题可以用贪心算法，但贪心算法无法保证可以求出解，比如1元换成2元的时候)
+ * @comment:有面值为1元、3元和5元的硬币若干枚，如何用最少的硬币凑够11元?
+ * (表面上这道题可以用贪心算法，但贪心算法无法保证可以求出解，比如1元换成2元的时候)
  */
 public class ExchangeCoin {
     public static void main(String[] args) {
