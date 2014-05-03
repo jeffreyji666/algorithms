@@ -10,9 +10,8 @@ import java.util.Arrays;
  */
 
 public class ThreeSum {
-
     public static void main(String[] args) {
-        int[] data = { -2, 3, 5, -1, -2, -3, 5, 6, 29, 4, 7, 8 };
+        int[] data = { -1, 0, 1, 2, -1, -4 };
         ArrayList<ArrayList<Integer>> res = threeSum(data);
         for (ArrayList<Integer> item : res) {
             for (int i : item) {
@@ -23,7 +22,6 @@ public class ThreeSum {
     }
 
     public static ArrayList<ArrayList<Integer>> threeSum(int[] num) {
-
         ArrayList<ArrayList<Integer>> rst = new ArrayList<ArrayList<Integer>>();
         if (num == null || num.length < 3) {
             return rst;
