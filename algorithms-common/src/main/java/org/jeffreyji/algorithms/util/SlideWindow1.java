@@ -16,9 +16,9 @@ package org.jeffreyji.algorithms.util;
 public class SlideWindow1 {
     public static void main(String[] args) {
         int[] h = { -1, 5, 8, 4, 4, 8, 4, -1 };
-        int[] mq = new int[h.length + 1]; // 单调队列，对内元素为建筑物高度的下标
-        int[] left = new int[h.length + 1]; // left[i]：在第i个建筑物左侧，不比它的高度小的建筑物数量
-        int[] right = new int[h.length + 1]; // right[i]：在第i个建筑物右侧，不比它的高度小的建筑物数量
+        int[] mq = new int[h.length - 1]; // 单调队列，对内元素为建筑物高度的下标
+        int[] left = new int[h.length - 1]; // left[i]：在第i个建筑物左侧，不比它的高度小的建筑物数量
+        int[] right = new int[h.length - 1]; // right[i]：在第i个建筑物右侧，不比它的高度小的建筑物数量
 
         calcLeft(h, mq, left);
         calcRight(h, mq, right);
@@ -50,11 +50,13 @@ public class SlideWindow1 {
 
     public static void calcLeft(int[] h, int[] mq, int[] left) {
         mq[0] = 0;
-        int front = 0, rear = 1;
+        int rear = 1;
         for (int i = 1; i <= h.length - 2; i++) {
-            while (front < rear && h[i] <= h[mq[rear - 1]]) {
+            while (rear > 0 && h[i] <= h[mq[rear - 1]]) {
                 rear--;
             }
+            System.out.printf("left[%d]:%d,mq[%d]:%d", i, i - mq[rear - 1] - 1, rear, i);
+            System.out.println();
             left[i] = i - mq[rear - 1] - 1;
             mq[rear++] = i;
         }
@@ -62,13 +64,14 @@ public class SlideWindow1 {
 
     public static void calcRight(int[] h, int[] mq, int[] right) {
         mq[0] = h.length - 1;
-        int front = 0, rear = 1;
+        int rear = 1;
 
-        int i;
-        for (i = h.length - 2; i >= 1; i--) {
-            while (front < rear && h[i] <= h[mq[rear - 1]]) {
+        for (int i = h.length - 2; i >= 1; i--) {
+            while (rear > 0 && h[i] <= h[mq[rear - 1]]) {
                 rear--;
             }
+            System.out.printf("right[%d]:%d,mq[%d]:%d", i, mq[rear - 1] - i - 1, rear, i);
+            System.out.println();
             right[i] = mq[rear - 1] - i - 1;
             mq[rear++] = i;
         }
