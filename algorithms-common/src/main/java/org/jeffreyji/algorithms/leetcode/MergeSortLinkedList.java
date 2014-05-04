@@ -3,7 +3,7 @@ package org.jeffreyji.algorithms.leetcode;
 /**
  * @author: wgji
  * @date：2014年5月2日 下午2:23:56
- * @comment:
+ * @comment:Sort a linked list in O(n log n) time using constant space complexity.
  */
 public class MergeSortLinkedList {
     public static void main(String[] args) {
