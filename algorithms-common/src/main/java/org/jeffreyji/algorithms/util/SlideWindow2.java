@@ -67,7 +67,7 @@ public class SlideWindow2 {
             }
             tail++;
             sw[tail] = i;
-            System.out.printf("----sw[%d]:%d,sw[%d]:%d----\n", head, sw[head], tail, sw[tail]);
+            System.out.printf("----sw[%d]:%d----\n",  tail, sw[tail]);
         }
         System.out.println("***************");
         for (i = k - 1; i < a.length; i++) {
@@ -79,7 +79,7 @@ public class SlideWindow2 {
             while (sw[head] < i - k + 1) {
                 head++;
             }
-            System.out.printf("----sw[%d]:%d,sw[%d]:%d----\n", head, sw[head], tail, sw[tail]);
+            System.out.printf("----swhead[%d]:%d,swtail[%d]:%d----\n", head, sw[head], tail, sw[tail]);
             System.out.printf("%d", a[sw[head]]);
             System.out.printf("%c", i == a.length - 1 ? '\n' : ' ');
         }
@@ -94,7 +94,7 @@ public class SlideWindow2 {
             }
             tail++;
             sw[tail] = i;
-            System.out.printf("----sw[%d]:%d,sw[%d]:%d----\n", head, sw[head], tail, sw[tail]);
+            System.out.printf("----sw[%d]:%d----\n", tail, sw[tail]);
         }
         System.out.println("***************");
         for (i = k - 1; i < a.length; i++) {
