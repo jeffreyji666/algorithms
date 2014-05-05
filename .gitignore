@@ -3,3 +3,6 @@
 
 algorithms-common/target
 algorithms-common/.classpath
+
+concurrency-common/target
+concurrency-common/.classpath

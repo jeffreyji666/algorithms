@@ -3,11 +3,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.jeffreyji.algorithms</groupId>
-	<artifactId>algorithms</artifactId>
+	<groupId>org.jeffreyji.common</groupId>
+	<artifactId>common</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0</version>
-	<name>algorithms</name>
+	<name>common</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -18,6 +18,7 @@
 
 	<modules>
 		<module>algorithms-common</module>
+		<module>concurrency-common</module>
 	</modules>
 
 	<build>

@@ -8,7 +8,6 @@ package org.jeffreyji.algorithms.util;
 import java.util.LinkedList;
 
 /*
-
 单调队列 滑动窗口
 单调队列是这样的一个队列：队列里面的元素是有序的，是递增或者递减
 
