@@ -18,7 +18,7 @@ package org.jeffreyji.algorithms.leetcode;
 
 public class PermutationSequence {
     public static void main(String[] args) {
-        System.out.println(getPermutation(9, 6));
+        System.out.println(getPermutation(3, 6));
     }
 
     public static String getPermutation(int n, int k) {
