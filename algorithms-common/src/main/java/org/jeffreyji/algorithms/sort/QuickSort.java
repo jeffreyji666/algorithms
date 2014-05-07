@@ -1,5 +1,7 @@
 package org.jeffreyji.algorithms.sort;
 
+import org.junit.Assert;
+
 /**
  * @author: wgji
  * @date：2014年3月27日 下午12:12:24
@@ -9,7 +11,11 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] x = { 3, 2, 4, 1, 6 };
+        int[] y = { 3, 2, 4, 1, 6 };
         quickSort1(x, 0, x.length - 1);
+        System.out.println("*********************");
+        quickSort2(y, 0, y.length - 1);
+        Assert.assertArrayEquals(x, y);
     }
 
     public static void quickSort1(int[] x, int left, int right) {
