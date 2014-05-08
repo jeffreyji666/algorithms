@@ -16,7 +16,6 @@ public class LIS {
         }
         System.out.println("-----");
         
-        
         int[] b = { 1, 3, -1, -3, 10 };
         
         
@@ -115,18 +114,11 @@ public class LIS {
      * 否则,在d[0-len]中二分查找,找到第一个比它小的元素d[k],并d[k+1]=a[i].
      */
     public static int lis4(int[] a) {
-        for (int bi : a) {
-            System.out.print(bi + ",");
-        }
-        System.out.println();
+        System.out.println(Arrays.toString(a));
         int j;
         int[] d = new int[a.length + 1];
         d[0] = Integer.MIN_VALUE;
         d[1] = a[0];
-        for (int bi : d) {
-            System.out.print(bi + ",");
-        }
-        System.out.println();
         int len = 1; // 递增子序列长度
         for (int i = 1; i < a.length; i++) {
             if (d[len] < a[i]) {
@@ -135,10 +127,7 @@ public class LIS {
                 j = binarySearch(d, 0, len, a[i]) + 1;
             }
             d[j] = a[i];
-            for (int bi : d) {
-                System.out.print(bi + ",");
-            }
-            System.out.println();
+            System.out.println(Arrays.toString(d));
         }
         return len;
     }
@@ -208,10 +197,7 @@ public class LIS {
              */
             if (head > length)
                 length = head;
-            for(int bi:b){
-                System.out.print(bi+",");
-            }
-            System.out.println();
+            System.out.println(Arrays.toString(b));
         }
         return length;
     }

@@ -9,7 +9,7 @@ package org.jeffreyji.algorithms.dynamicprogramming;
 public class ExchangeCoin {
     public static void main(String[] args) {
         int[] values = { 1, 3, 5 };
-        makeChange(values, 11, new int[12]);
+        makeChange(values, 111, new int[112]);
     }
 
     public static void makeChange(int[] values, int money, int[] coinUsed) {
