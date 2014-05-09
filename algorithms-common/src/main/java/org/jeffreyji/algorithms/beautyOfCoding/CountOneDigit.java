@@ -13,6 +13,7 @@ public class CountOneDigit {
         System.out.println(count3(11));
         System.out.println(count4(11));
         System.out.println(count5(11));
+        System.out.println(count6(11));
     }
 
     public static int count(int num) {
@@ -22,6 +23,15 @@ public class CountOneDigit {
                 count++;
             }
             num = num / 2;
+        }
+        return count;
+    }
+
+    public static int count6(int num) {
+        int count = 0;
+        while (num > 0) {
+            count += num & 0x01;
+            num >>= 1;
         }
         return count;
     }
