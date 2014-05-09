@@ -48,7 +48,7 @@ public class BinaryTreeTraversal {
 
         Stack<TreeNode> stack = new Stack<TreeNode>();
         TreeNode cur = root;
-        stack.add(cur);
+        stack.push(cur);
         while (!stack.isEmpty()) {
             cur = stack.pop();
             res.add(cur.val);
