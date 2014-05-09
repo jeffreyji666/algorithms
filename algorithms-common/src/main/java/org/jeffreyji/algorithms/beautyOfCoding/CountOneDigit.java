@@ -12,6 +12,7 @@ public class CountOneDigit {
         System.out.println(count2(11));
         System.out.println(count3(11));
         System.out.println(count4(11));
+        System.out.println(count5(11));
     }
 
     public static int count(int num) {
@@ -60,5 +61,14 @@ public class CountOneDigit {
         x = (x + (x >> 3)) & 030707070707;
         x = x % 63;
         return x;
+    }
+
+    public static int count5(int x) {
+        int v = 7;
+        v = v - ((v >> 1) & 0x55555555); // reuse input as temporary
+        v = (v & 0x33333333) + ((v >> 2) & 0x33333333); // temp
+        int c = ((v + (v >> 4) & 0xF0F0F0F) * 0x1010101) >> 24; // count
+
+        return c;
     }
 }
