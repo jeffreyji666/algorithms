@@ -14,14 +14,16 @@ public class LongestCommonPrefix {
 
     public static String longestCommonPrefix(String[] strs) {
         String prefix = "";
-        if (strs.length == 0) {
+        if (strs == null || strs.length == 0) {
             return prefix;
         }
+        if (strs.length == 1) {
+            return strs[0];
+        }
 
-        int k = 0;
+        int i, k = 0;
         while (true) {
             char p = ' ';
-            int i;
             for (i = 0; i < strs.length; i++) {
                 if (k == strs[i].length()) {
                     break;
@@ -29,7 +31,6 @@ public class LongestCommonPrefix {
                 if (i == 0) {
                     p = strs[i].charAt(k);
                 }
-
                 if (p != strs[i].charAt(k)) {
                     break;
                 }
@@ -40,7 +41,6 @@ public class LongestCommonPrefix {
             prefix += p;
             k++;
         }
-
         return prefix;
     }
 }
