@@ -38,6 +38,7 @@ public class NFactorialTailZeroNumber {
         }
         return res;
     }
+    
     //也可以通过 N值减去N的二进制表示中1的数目
     public static int theLowestPositionOfOne2(int input){
         return input - CountOneDigit.count5(input);
