@@ -9,6 +9,7 @@ package org.jeffreyji.algorithms.beautyOfCoding;
 public class NFactorialTailZeroNumber {
     public static void main(String args[]) {
         System.out.println(trailingZeros(100));
+        System.out.println(trailingZeros2(100));       
         System.out.println(theLowestPositionOfOne(6));
         System.out.println(theLowestPositionOfOne2(6));
     }
@@ -29,6 +30,15 @@ public class NFactorialTailZeroNumber {
         return fiveFactors;
     }
     
+    public static int trailingZeros2(int input) {
+        int res = 0;
+        while (input > 0) {
+            res += input / 5;
+            input /= 5;
+        }
+        return res;
+    }
+    
     //N!的二进制表示中最低位1的位置，即求N/2 + N/4 + N/8 + ...
     public static int theLowestPositionOfOne(int input){
         int res = 0;
@@ -41,6 +51,6 @@ public class NFactorialTailZeroNumber {
     
     //也可以通过 N值减去N的二进制表示中1的数目
     public static int theLowestPositionOfOne2(int input){
-        return input - CountOneDigit.count5(input);
+        return input - CountOneDigitOfBinaryString.count5(input);
     }
 }

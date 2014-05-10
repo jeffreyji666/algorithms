@@ -6,7 +6,7 @@ package org.jeffreyji.algorithms.beautyOfCoding;
  * @comment:count the 1 digit num of a binary string or a basic type.
  */
 
-public class CountOneDigit {
+public class CountOneDigitOfBinaryString {
     public static void main(String[] args) {
         System.out.println(count(11));
         System.out.println(count2(11));
