@@ -28,17 +28,12 @@ public class InsertionSortList {
             res = res.next;
         }
         System.out.println();
+        
         head = new ListNode(2);
-        second = new ListNode(1);
-        third = new ListNode(34);
-        fourth = new ListNode(4);
-        fifth = new ListNode(51);
-        sixth = new ListNode(6);
+        second = new ListNode(3);
+        third = new ListNode(1);
         head.next = second;
         second.next = third;
-        third.next = fourth;
-        fourth.next = fifth;
-        fifth.next = sixth;
         res = insertionSortList2(head);
         while (res != null) {
             System.out.printf("%d ", res.val);

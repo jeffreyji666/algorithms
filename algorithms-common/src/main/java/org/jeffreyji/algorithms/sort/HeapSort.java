@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class HeapSort {
     public static void main(String[] args){
-        int[] source = {11,2,3,1,15,20,0};
+        int[] source = { 11, 2, 3, 1, 15, 20, 0 };
         heapSort(source);
         System.out.println(Arrays.toString(source));
     }
@@ -64,8 +64,8 @@ public class HeapSort {
      */
     public static void bulidMaxHeap(int[] source) {
         // beginFlag以后的都是叶子节点。
-        int beginFlag = (int) Math.floor(source.length / 2);
-        for (int i = beginFlag; i >= 1; i--) {
+        int middle = (int) Math.floor(source.length / 2);
+        for (int i = middle; i >= 1; i--) {
             maxHeapify(source, i, source.length);
         }
     }

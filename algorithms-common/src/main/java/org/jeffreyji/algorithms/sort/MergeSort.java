@@ -29,7 +29,7 @@ public class MergeSort {
     }
 
     public static void merge(int[] data, int left, int center, int right) {
-        int[] res = new int[right - left + 1];
+        int[] res = new int[data.length];
         int mid = center + 1;
         // third记录中间数组的索引
         int i = left;
