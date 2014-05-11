@@ -8,7 +8,7 @@ package org.jeffreyji.algorithms.beautyOfCoding;
 
 public class FindMaxK {
     public static void main(String[] args) {
-        int[] a = { 1, 3, 4, 7, 8, 5, 6 };
+        int[] a = { 1, 20, 3, 10, 11, 4, 7, 8, 5, 6 };
         int index = findMaxK(a, 0, a.length - 1, 3);
         for (int i = 0; i <= index; i++) {
             System.out.printf("%d ", a[i]);
@@ -36,25 +36,20 @@ public class FindMaxK {
 
     /* 将数组a[s]...a[t]中的元素用一个元素划开，保存中a[k]中 */
     public static int partition(int a[], int low, int high) {
-        int index = a[low]; // 取划分元素
-        int i = low; // 扫描指针初值
-        int j = high;
-        while (i < j) {
-            while ((a[j] < index) && i < j) {
-                j--; // 从右向左扫描,如果是比划分元素小，则不动
+        int tmp = a[low]; // 取划分元素
+        while (low < high) {
+            while ((a[high] < tmp) && low < high) {
+                high--; // 从右向左扫描,如果是比划分元素小，则不动
             }
-            if (i < j) {
-                a[i++] = a[j]; // 大元素向左边移
+            a[low] = a[high]; // 大元素向左边移
+            
+            while ((a[low] >= tmp) && low < high) {
+                low++; // 从左向右扫描，如果是比划分元素大，则不动
             }
-            while ((a[i] >= index) && i < j) {
-                i++; // 从左向右扫描，如果是比划分元素大，则不动
-            }
-            if (i < j) {
-                a[j--] = a[i]; // 小元素向右边移
-            }
+            a[high] = a[low]; // 小元素向右边移
         } // 直到指针i与j相等
-        a[i] = index; // 划分元素就位
-        return i;
+        a[low] = tmp; // 划分元素就位
+        return low;
     }
 
     /*

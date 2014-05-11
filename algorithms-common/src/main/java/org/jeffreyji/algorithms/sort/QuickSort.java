@@ -1,5 +1,7 @@
 package org.jeffreyji.algorithms.sort;
 
+import java.util.Arrays;
+
 import org.junit.Assert;
 
 /**
@@ -29,10 +31,10 @@ public class QuickSort {
                 swap(x, ++middle, i);
             }
         }
-        printArray(x);
+        System.out.println(Arrays.toString(x));
         System.out.println("before swap xl:" + x[left] + ", xm:" + x[middle]);
         swap(x, left, middle);
-        printArray(x);
+        System.out.println(Arrays.toString(x));
 
         System.out.println("----------------------");
         quickSort1(x, left, middle - 1);
@@ -44,13 +46,6 @@ public class QuickSort {
         int tmp = x[i];
         x[i] = x[j];
         x[j] = tmp;
-    }
-
-    private static void printArray(int[] x) {
-        for (int i = 0; i < x.length; i++) {
-            System.out.print(x[i]);
-        }
-        System.out.println();
     }
 
     private static int partition(int[] a, int left, int right) {
@@ -68,7 +63,7 @@ public class QuickSort {
         }
         a[left] = temp;
 
-        printArray(a);
+        System.out.println(Arrays.toString(a));
 
         return left;
     }
