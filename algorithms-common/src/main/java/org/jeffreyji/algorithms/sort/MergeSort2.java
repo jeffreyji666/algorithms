@@ -27,11 +27,12 @@ public class MergeSort2 {
             int mid = (first & last) + ((first ^ last) >> 1);
             mergeSort(a, first, mid);
             mergeSort(a, mid + 1, last);
-            merge(new int[a.length], a, first, mid, last);
+            merge(a, first, mid, last);
         }
     }
 
-    public static void merge(int[] temp, int[] a, int first, int mid, int last) {
+    public static void merge(int[] a, int first, int mid, int last) {
+        int[] temp = new int[a.length];
         int i = first;
         int j = mid + 1;
         int k = 0;
