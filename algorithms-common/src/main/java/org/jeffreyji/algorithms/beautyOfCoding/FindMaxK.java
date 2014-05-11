@@ -15,16 +15,15 @@ public class FindMaxK {
         }
         System.out.println();
         buildMinHeap(a, 3);
-        // 数组中最小元素在根a[1]
-        for (int i = a.length - 1; i > 2; i--) {
+        // 数组中最小元素在根a[0]
+        for (int i = a.length - 1; i >= 1; i--) {
             // 如果X比堆顶元素Y小，则不需要改变原来的堆
             // 如果X比堆顶元素Y大，那么用X替换堆顶元素Y，在替换之后，X可能破坏了最小堆的结构，需要调整堆来维持堆的性质
-            int temp;
             if (a[0] < a[i]) {
                 // 交换
-                temp = a[i];
+                int tmp = a[i];
                 a[i] = a[0];
-                a[0] = temp;
+                a[0] = tmp;
                 // 重新调整，保持最小堆的性质
                 minHeap(a, 0, 2);
             }

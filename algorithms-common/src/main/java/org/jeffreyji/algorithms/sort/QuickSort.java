@@ -2,8 +2,6 @@ package org.jeffreyji.algorithms.sort;
 
 import java.util.Arrays;
 
-import org.junit.Assert;
-
 /**
  * @author: wgji
  * @date：2014年3月27日 下午12:12:24
@@ -12,27 +10,27 @@ import org.junit.Assert;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] x = { 3, 2, 4, 1, 6 };
-        int[] y = { 3, 2, 4, 1, 6 };
+        int[] x = { 2, 8, 7, 1, 3, 5, 6, 4 };
         quickSort1(x, 0, x.length - 1);
         System.out.println("*********************");
+
+        int[] y = { 3, 2, 4, 1, 6 };
         quickSort2(y, 0, y.length - 1);
-        Assert.assertArrayEquals(x, y);
     }
 
     public static void quickSort1(int[] x, int left, int right) {
-        int i, middle;
+        System.out.println(Arrays.toString(x));
         if (left >= right) {
             return;
         }
-        middle = left;
-        for (i = left + 1; i <= right; i++) {
+        int middle = left;
+        for (int i = left + 1; i <= right; i++) {
             if (x[i] < x[left]) { // buggy!
+                System.out.println("before swap:" + Arrays.toString(x));
                 swap(x, ++middle, i);
+                System.out.println("after swap:" + Arrays.toString(x));
             }
         }
-        System.out.println(Arrays.toString(x));
-        System.out.println("before swap xl:" + x[left] + ", xm:" + x[middle]);
         swap(x, left, middle);
         System.out.println(Arrays.toString(x));
 
