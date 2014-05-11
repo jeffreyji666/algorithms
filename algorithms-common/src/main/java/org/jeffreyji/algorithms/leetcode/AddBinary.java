@@ -5,8 +5,8 @@ import java.math.BigInteger;
 /**
  * @author: wgji
  * @date：2014年5月8日 上午10:40:16
- * @comment:Given two binary strings, return their sum (also a binary string). For example, a = "11" b = "1" Return
- *                "100".
+ * @comment:Given two binary strings, return their sum (also a binary string). 
+ * For example, a = "11" b = "1" Return "100".
  */
 public class AddBinary {
     public static void main(String[] args) {

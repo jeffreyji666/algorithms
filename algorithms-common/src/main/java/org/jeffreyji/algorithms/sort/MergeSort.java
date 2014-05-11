@@ -1,5 +1,7 @@
 package org.jeffreyji.algorithms.sort;
 
+import java.util.Arrays;
+
 /**
  * @author: wgji
  * @date：2014年5月2日 下午12:23:16
@@ -10,8 +12,7 @@ public class MergeSort {
         int a[] = { 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 64, 5, 4, 62, 99, 98, 54, 56, 17, 18, 23, 34, 15, 35,
                 25, 53, 51 };
         mergeSort(a, 0, a.length - 1);
-        for (int i = 0; i < a.length; i++)
-            System.out.print(a[i] + " ");
+        System.out.println(Arrays.toString(a));
     }
 
     public static void mergeSort(int[] data, int left, int right) {
@@ -24,12 +25,11 @@ public class MergeSort {
             mergeSort(data, center + 1, right);
             // 合并
             merge(data, left, center, right);
-
         }
     }
 
     public static void merge(int[] data, int left, int center, int right) {
-        int[] res = new int[data.length];
+        int[] res = new int[right - left + 1];
         int mid = center + 1;
         // third记录中间数组的索引
         int i = left;

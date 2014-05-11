@@ -7,10 +7,27 @@ package org.jeffreyji.algorithms.leetcode;
  */
 public class MergeSortLinkedList {
     public static void main(String[] args) {
+        ListNode head = new ListNode(2);
+        ListNode second = new ListNode(1);
+        ListNode third = new ListNode(34);
+        ListNode fourth = new ListNode(4);
+        ListNode fifth = new ListNode(51);
+        ListNode sixth = new ListNode(6);
 
+        head.next = second;
+        second.next = third;
+        third.next = fourth;
+        fourth.next = fifth;
+        fifth.next = sixth;
+
+        ListNode res = mergeSort(head);
+        while (res != null) {
+            System.out.printf("%d ", res.val);
+            res = res.next;
+        }
     }
 
-    public ListNode mergeSort(ListNode head) {
+    public static ListNode mergeSort(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
@@ -39,7 +56,7 @@ public class MergeSortLinkedList {
         return slow;
     }
 
-    private ListNode merge(ListNode head1, ListNode head2) {
+    private static ListNode merge(ListNode head1, ListNode head2) {
         ListNode dummy = new ListNode(0);
         ListNode tail = dummy;
         while (head1 != null && head2 != null) {

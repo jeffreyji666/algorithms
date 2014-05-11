@@ -32,7 +32,7 @@ public class MergeSort2 {
     }
 
     public static void merge(int[] a, int first, int mid, int last) {
-        int[] temp = new int[a.length];
+        int[] temp = new int[last - first + 1];
         int i = first;
         int j = mid + 1;
         int k = 0;

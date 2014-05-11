@@ -9,16 +9,16 @@ import java.util.Arrays;
  */
 
 public class InsertionSort {
-    public static void insertionSort(int[] unsorted) {
-        for (int i = 1; i < unsorted.length; i++) {
-            if (unsorted[i - 1] > unsorted[i]) {
-                int temp = unsorted[i];
+    public static void insertionSort(int[] a) {
+        for (int i = 1; i < a.length; i++) {
+            if (a[i - 1] > a[i]) {
+                int tmp = a[i];
                 int j = i;
-                while (j > 0 && unsorted[j - 1] > temp) {
-                    unsorted[j] = unsorted[j - 1];
+                while (j > 0 && a[j - 1] > tmp) {
+                    a[j] = a[j - 1];
                     j--;
                 }
-                unsorted[j] = temp;
+                a[j] = tmp;
             }
         }
     }
