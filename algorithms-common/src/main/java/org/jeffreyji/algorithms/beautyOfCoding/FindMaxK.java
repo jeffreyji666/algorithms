@@ -41,7 +41,7 @@ public class FindMaxK {
                 high--; // 从右向左扫描,如果是比划分元素小，则不动
             }
             a[low] = a[high]; // 大元素向左边移
-            
+
             while ((a[low] >= tmp) && low < high) {
                 low++; // 从左向右扫描，如果是比划分元素大，则不动
             }
@@ -86,10 +86,9 @@ public class FindMaxK {
         }
         // 如果a[index]是最小的，则以index为根的子树已是最小堆否则index的子节点有最小元素
         // 则交换a[index],a[MinIndex],从而使index及子女满足堆性质
-        int temp;
         if (minIndex != index) {
             // 交换a[index],a[MinIndex]
-            temp = a[index];
+            int temp = a[index];
             a[index] = a[minIndex];
             a[minIndex] = temp;
             // 重新调整以MinIndex为根的子树
@@ -99,12 +98,11 @@ public class FindMaxK {
     }
 
     // 建堆：将一个数组a[1-k]变成一个最小堆
-    public static int buildMinHeap(int a[], int k) {
+    public static void buildMinHeap(int a[], int k) {
         // 用容量为k的最小堆来存储最大的k个数
         for (int i = k; i >= 0; i--) {
             // 调整以i为根节点的树使之成为最小堆
             minHeap(a, i, k);
         }
-        return 0;
     }
 }

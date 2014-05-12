@@ -23,8 +23,8 @@ public class FindFloodKing {
     public static void main(String[] args) {
         int arr[] = { 9, 11, 11, 13, 11, 11, 11, 18, 19, 11, 11, 20, 11 };
         System.out.println(findFloodKing(arr));
-        
-        int[] num = {1,1,1,2,2,2,3,3,3,4,4};
+
+        int[] num = { 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4 };
         System.out.println(Arrays.toString(findThirdFloodKing(num)));
     }
 

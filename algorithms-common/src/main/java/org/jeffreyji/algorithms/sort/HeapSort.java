@@ -10,8 +10,8 @@ import java.util.Arrays;
  * 注意下边个方法的参数是以1开始记得。时间复杂度：O(nlgn) 原地排序，不需要多余的空间。
  */
 public class HeapSort {
-    public static void main(String[] args){
-        int[] source = { 11, 2, 3, 1, 15, 20, 0,12 };
+    public static void main(String[] args) {
+        int[] source = { 11, 2, 3, 1, 15, 20, 0, 12 };
         heapSort(source);
         System.out.println(Arrays.toString(source));
     }
