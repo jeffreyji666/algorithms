@@ -15,45 +15,49 @@ package org.jeffreyji.algorithms.leetcode;
 
 public class SpiralMatrix2 {
     public static void main(String[] args) {
-        int[][] res = generateMatrix(4);
+        int[][] res = generateMatrix(3);
         for (int i = 0; i < res.length; i++) {
             for (int j = 0; j < res[i].length; j++) {
-                System.out.printf("%d,", res[i][j]);
+                System.out.printf(res[i][j] > 9 ? "%d," : " %d,", res[i][j]);
             }
             System.out.println();
         }
     }
 
     public static int[][] generateMatrix(int n) {
-        int[][] result = new int[n][n];
-        if (n < 1)
-            return result;
+        int[][] res = new int[n][n];
+        if (n < 1) {
+            return res;
+        }
         int top = 0, bottom = n - 1, left = 0, right = n - 1;
         int loop = (n + 1) / 2;
         for (int i = 0, num = 1; i < loop; i++) {
             for (int j = left; j <= right; j++) {
-                result[top][j] = num++;
+                res[top][j] = num++;
             }
             top++;
-            if (top > bottom)
-                return result;
+            if (top > bottom) {
+                return res;
+            }
             for (int j = top; j <= bottom; j++) {
-                result[j][right] = num++;
+                res[j][right] = num++;
             }
             right--;
-            if (left > right)
-                return result;
+            if (left > right) {
+                return res;
+            }
             for (int j = right; j >= left; j--) {
-                result[bottom][j] = num++;
+                res[bottom][j] = num++;
             }
             bottom--;
-            if (top > bottom)
-                return result;
+            if (top > bottom) {
+                return res;
+            }
             for (int j = bottom; j >= top; j--) {
-                result[j][left] = num++;
+                res[j][left] = num++;
             }
             left++;
         }
-        return result;
+        return res;
     }
 }
