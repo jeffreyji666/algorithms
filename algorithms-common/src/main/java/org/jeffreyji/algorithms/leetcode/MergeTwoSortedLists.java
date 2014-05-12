@@ -3,7 +3,8 @@ package org.jeffreyji.algorithms.leetcode;
 /**
  * @author: wgji
  * @date：2014年5月12日 下午6:04:23
- * @comment:
+ * @comment:Merge two sorted linked lists and return it as a new list. 
+ * The new list should be made by splicing together the nodes of the first two lists.
  */
 public class MergeTwoSortedLists {
     public static void main(String[] args) {
