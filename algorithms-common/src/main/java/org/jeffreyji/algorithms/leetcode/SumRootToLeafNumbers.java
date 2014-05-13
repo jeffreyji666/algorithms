@@ -27,10 +27,10 @@ public class SumRootToLeafNumbers {
     public static int sumNumbers(TreeNode root) {
         if (root == null)
             return 0;
-        return helper(root, 0, 0);
+        return dfs(root, 0, 0);
     }
 
-    public static int helper(TreeNode node, int num, int sum) {
+    public static int dfs(TreeNode node, int num, int sum) {
         if (node == null)
             return sum;
 
@@ -43,7 +43,7 @@ public class SumRootToLeafNumbers {
         }
 
         // sum of left subtree + right subtree
-        sum = helper(node.left, num, sum) + helper(node.right, num, sum);
+        sum = dfs(node.left, num, sum) + dfs(node.right, num, sum);
         return sum;
     }
     

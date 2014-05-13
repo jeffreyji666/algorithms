@@ -42,10 +42,10 @@ public class PathSum {
             return false;
         }
 
-        return helper(root, 0, sum);
+        return dfs(root, 0, sum);
     }
 
-    public static boolean helper(TreeNode root, int num, int sum) {
+    public static boolean dfs(TreeNode root, int num, int sum) {
         if (root == null) {
             return false;
         }
@@ -56,6 +56,6 @@ public class PathSum {
             }
             return false;
         }
-        return helper(root.left, num, sum) || helper(root.right, num, sum);
+        return dfs(root.left, num, sum) || dfs(root.right, num, sum);
     }
 }

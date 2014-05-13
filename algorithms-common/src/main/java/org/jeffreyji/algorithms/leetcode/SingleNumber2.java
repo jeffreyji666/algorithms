@@ -41,7 +41,9 @@ public class SingleNumber2 {
             xthrees = ~(ones & twos);
             ones &= xthrees;
             twos &= xthrees;
-            System.out.printf("ones:%s,twos:%s,xthrees:%s\n",Integer.toBinaryString(ones),Integer.toBinaryString(twos),Integer.toBinaryString(xthrees));
+            System.out.printf("ones:%d,twos:%d,xthrees:%d\n", ones, twos, xthrees);
+            System.out.printf("ones:%s,twos:%s,xthrees:%s\n", Integer.toBinaryString(ones),
+                    Integer.toBinaryString(twos), Integer.toBinaryString(xthrees));
         }
 
         return ones;
