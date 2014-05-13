@@ -10,22 +10,15 @@ package org.jeffreyji.algorithms.dynamicprogramming;
  *           那么公共子序列可能以X[i]结尾，可能以Y[j]结尾，可以末尾都不含有X[i]或Y[j]。因此 L(i, j)= MAX{L(i-1 , j), L(i, j-1)}
  */
 public class LCS2 {
-    /** 字符串X的字符数组 */
-    private char[] charArrayX = null;
-    /** 字符串Y的字符数组 */
-    private char[] charArrayY = null;
-
-    public LCS2(String sa, String sb) {
-        charArrayX = new char[sa.length() + 1];
-        System.arraycopy(sa.toCharArray(), 0, charArrayX, 1, sa.length());
-        charArrayY = new char[sb.length() + 1];
-        System.arraycopy(sb.toCharArray(), 0, charArrayY, 1, sb.length());
-    }
-
+    
     /**
      * 得到最长公共子序列的长度
      */
-    public void getLCS() {
+    public static void getLCS(String sa, String sb) {
+        char[] charArrayX = new char[sa.length() + 1];
+        System.arraycopy(sa.toCharArray(), 0, charArrayX, 1, sa.length());
+        char[] charArrayY = new char[sb.length() + 1];
+        System.arraycopy(sb.toCharArray(), 0, charArrayY, 1, sb.length());
         int[][] length = new int[charArrayX.length + 1][charArrayY.length + 1];
 
         for (int m = 1; m < charArrayX.length; m++) {
@@ -33,16 +26,9 @@ public class LCS2 {
                 if (charArrayX[m] == charArrayY[n]) {
                     length[m][n] = length[m - 1][n - 1] + 1;
                 } else
-                    length[m][n] = max(length[m - 1][n], length[m][n - 1]);
+                    length[m][n] = Math.max(length[m - 1][n], length[m][n - 1]);
                 // length[m][n] = max(length[m][n], length[m-1][n-1]);
             }
-        }
-
-        for (int m = 0; m < charArrayX.length; m++) {
-            for (int n = 0; n < charArrayY.length; n++) {
-                System.out.print(length[m][n] + " ");
-            }
-            System.out.println();
         }
 
         // 打印最长公共子序列
@@ -65,17 +51,9 @@ public class LCS2 {
     }
 
     /**
-     * 取最大值
-     */
-    private int max(int m, int n) {
-        return m > n ? m : n;
-    }
-
-    /**
      * 测试
      */
     public static void main(String[] args) {
-        LCS2 lcs = new LCS2("GTTCCTAATA", "CGATAATTGAGA");
-        lcs.getLCS();
+        getLCS("GTTCCTAATA", "CGATAATTGAGA");
     }
 }
