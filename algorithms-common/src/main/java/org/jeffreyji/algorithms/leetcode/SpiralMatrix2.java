@@ -57,7 +57,11 @@ public class SpiralMatrix2 {
                 res[j][left] = num++;
             }
             left++;
+            if (left > right) {
+                return res;
+            }
         }
+        
         return res;
     }
 }
