@@ -5,18 +5,12 @@ package org.jeffreyji.algorithms.string;
  * @date：2014年5月2日 上午12:37:39 
  * @comment: 
  */
-import java.io.BufferedReader;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class KMP {
     public static void main(String args[]) throws IOException {
-        BufferedReader buf = new BufferedReader(new InputStreamReader(System.in));
-
-        String str1 = buf.readLine();
-        String str2 = buf.readLine();
-
-        kmp(str1, str2);
+        kmp("test", "testtest");
     }
 
     // getNext();
