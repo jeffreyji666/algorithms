@@ -29,6 +29,7 @@ public class PalindromeNumber {
             rst = rst * 10 + x % 10;
             x = x / 10;
         }
+        System.out.println(rst);
         return rst;
     }
 }

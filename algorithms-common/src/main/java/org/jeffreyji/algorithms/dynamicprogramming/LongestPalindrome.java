@@ -6,14 +6,9 @@ import java.util.Arrays;
  * @author:  wgji
  * @date：2014年5月14日 下午1:32:11 
  * @comment: 
- */
-/**
  * 对称字符串的最大长度（字符串）<br/>
  * 题目：输入一个字符串，输出该字符串中对称的子字符串的最大长度。<br/>
  * 比如输入字符串“google”，由于该字符串里最长的对称子字符串是“goog”，因此输出4。
- * 
- * @author Joeson
- * 
  */
 public class LongestPalindrome {
     public static void main(String[] args) {
@@ -21,7 +16,6 @@ public class LongestPalindrome {
         char[] str = init(s);
         System.out.println(Arrays.toString(str));
         manacher(str);
-        System.out.println(Integer.toString(10));
     }
 
     /**
@@ -43,14 +37,8 @@ public class LongestPalindrome {
         return str;
     }
 
-    /**
-     * 
-     * 
-     * @param str
-     */
     public static void manacher(char[] s) {
         int rad[] = new int[s.length];
-
         int i = 1, j = 0, k;
 
         // 记录最长的回文串的长度
@@ -60,7 +48,6 @@ public class LongestPalindrome {
             while (i - j - 1 > -1 && i + j + 1 < s.length && s[i - j - 1] == s[i + j + 1])
                 j++;
             rad[i] = j;
-
             maxLen = maxLen > j ? maxLen : j;
 
             k = 1;
@@ -71,9 +58,7 @@ public class LongestPalindrome {
             i = i + k;
             j = Math.max(j - k, 0);
         }
-
         System.out.println(Arrays.toString(rad));
         System.out.println("最长回文串长度： " + maxLen);
     }
-
 }
