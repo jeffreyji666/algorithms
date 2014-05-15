@@ -1,4 +1,4 @@
-package org.jeffreyji.algorithms.graph; 
+package org.jeffreyji.algorithms.beautyOfCoding; 
 
 /** 
  * @author:  wgji
