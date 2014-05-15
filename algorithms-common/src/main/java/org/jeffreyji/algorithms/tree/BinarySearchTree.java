@@ -18,30 +18,35 @@ class TreeNode {
 public class BinarySearchTree {
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(2);
+        TreeNode root = new TreeNode(1);
         root.left = new TreeNode(1);
-        root.right = new TreeNode(3);
+        // root.right = new TreeNode(3);
 
-        System.out.println(isBinarySearchTree2(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+        System.out.println(isValidBST(root));
     }
 
-    /* 该函数判断二叉树p是否是一棵二叉搜索树，且其结点值都大于prev */
-    public static boolean isBinarySearchTree(TreeNode root, int prev) {
+    private static int previous = Integer.MIN_VALUE;
+
+    public static boolean isValidBST(TreeNode root) {
         if (root == null) {
             return true;
         }
-        if (isBinarySearchTree(root.left, prev)) { // 如果左子树是二叉搜索树，且结点值都大于prev
-            // 判断当前结点值是否大于prev，因为此时prev已经设置为已经中序遍历过的结点的最大值。
-            if (root.val > prev) {
-                prev = root.val;
-                // 若结点值大于prev，则设置prev为当前结点值，并判断右子树是否二叉搜索树且结点值都大于prev。
-                return isBinarySearchTree(root.right, prev);
-            } else {
-                return false;
-            }
-        } else {
+        // the left sub tree
+        if (!isValidBST(root.left)) {
             return false;
         }
+        // the current node
+        if (root.val <= previous) {
+            return false;
+        }
+        previous = root.val;
+
+        // the right subtree
+        if (!isValidBST(root.right)) {
+            return false;
+        }
+
+        return true;
     }
 
     /*
