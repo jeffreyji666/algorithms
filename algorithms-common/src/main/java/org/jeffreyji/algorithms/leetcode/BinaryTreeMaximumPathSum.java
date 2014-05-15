@@ -18,25 +18,26 @@ public class BinaryTreeMaximumPathSum {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
+        root.right = new TreeNode(-3);
 
         System.out.println(maxPathSum(root));
     }
 
+    private static int max;
 
     public static int maxPathSum(TreeNode root) {
-        int max = (root == null) ? 0 : root.val;
-        findMax(root,max);
+        max = (root == null) ? 0 : root.val;
+        findMax(root);
         return max;
     }
 
-    public static int findMax(TreeNode node,int max) {
+    public static int findMax(TreeNode node) {
         if (node == null) {
             return 0;
         }
         // recursively get sum of left and right path
-        int left = Math.max(findMax(node.left,max), max);
-        int right = Math.max(findMax(node.right,max), max);
+        int left = Math.max(findMax(node.left), 0);
+        int right = Math.max(findMax(node.right), 0);
 
         // update maximum here
         max = Math.max(node.val + left + right, max);
