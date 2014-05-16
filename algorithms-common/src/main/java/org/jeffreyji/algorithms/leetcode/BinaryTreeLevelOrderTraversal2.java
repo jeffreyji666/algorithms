@@ -32,7 +32,7 @@ public class BinaryTreeLevelOrderTraversal2 {
         right.left = new TreeNode(15);
         right.right = new TreeNode(7);
 
-        ArrayList<ArrayList<Integer>> res = levelOrderBottom(root);
+        ArrayList<ArrayList<Integer>> res = levelOrderBottom3(root);
         for (ArrayList<Integer> level : res) {
             for (Integer val : level) {
                 System.out.printf("%d,", val);
@@ -74,7 +74,6 @@ public class BinaryTreeLevelOrderTraversal2 {
     
     public static ArrayList<ArrayList<Integer>> levelOrderBottom2(TreeNode root) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-
         if (root == null) {
             return result;
         }
@@ -109,5 +108,32 @@ public class BinaryTreeLevelOrderTraversal2 {
             currLevelNodeNum = nextLevelNodeNum;
         }
         return result;
+    }
+    
+    public static ArrayList<ArrayList<Integer>> levelOrderBottom3(TreeNode root) {
+        ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
+        if (root == null) {
+            return res;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            ArrayList<Integer> level = new ArrayList<Integer>();
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode cur = queue.poll();
+                level.add(cur.val);
+                if (cur.left != null) {
+                    queue.offer(cur.left);
+                }
+                if (cur.right != null) {
+                    queue.offer(cur.right);
+                }
+            }
+            res.add(0,level);
+        }
+        return res;
     }
 }

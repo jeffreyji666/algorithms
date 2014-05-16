@@ -60,83 +60,13 @@ public class BinaryTree {
         r2.right = r5;
         r3.right = r6;
         
-//      System.out.println(getNodeNumRec(r1));
-//      System.out.println(getNodeNum(r1));
-//      System.out.println(getDepthRec(r1));
-//      System.out.println(getDepth(r1));
-        
-//      preorderTraversalRec(r1);
-//      System.out.println();
-//      preorderTraversal(r1);
-//      System.out.println();
-//      inorderTraversalRec(r1);
-//      System.out.println();
-//      inorderTraversal(r1);
-//      System.out.println();
-//      postorderTraversalRec(r1);
-//      System.out.println();
-//      postorderTraversal(r1);
-//      System.out.println();
-//      levelTraversal(r1);
-//      System.out.println();
-//      levelTraversalRec(r1);
-//      System.out.println();
-        
-//      TreeNode tmp = convertBSTRec(r1);
-//      while(true){
-//          if(tmp == null){
-//              break;
-//          }
-//          System.out.print(tmp.val + " ");
-//          if(tmp.right == null){
-//              break;
-//          }
-//          tmp = tmp.right;
-//      }
-//      System.out.println();
-//      while(true){
-//          if(tmp == null){
-//              break;
-//          }
-//          System.out.print(tmp.val + " ");
-//          if(tmp.left == null){
-//              break;
-//          }
-//          tmp = tmp.left;
-//      }
-        
-        
-//      TreeNode tmp = convertBST2DLL(r1);
-//      while(true){
-//          if(tmp == null){
-//              break;
-//          }
-//          System.out.print(tmp.val + " ");
-//          if(tmp.right == null){
-//              break;
-//          }
-//          tmp = tmp.right;
-//      }
-        
-//      System.out.println(getNodeNumKthLevelRec(r1, 2));
-//      System.out.println(getNodeNumKthLevel(r1, 2));
-        
-//      System.out.println(getNodeNumLeafRec(r1));
-//      System.out.println(getNodeNumLeaf(r1));
-        
-//      System.out.println(isSame(r1, r1));
-//      inorderTraversal(r1);
-//      System.out.println();
-//      mirror(r1);
-//      TreeNode mirrorRoot = mirrorCopy(r1);
-//      inorderTraversal(mirrorRoot);
         
         System.out.println(isCompleteBinaryTree(r1));
         System.out.println(isCompleteBinaryTreeRec(r1));
         
     }
 
-    private static class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
