@@ -67,9 +67,9 @@ public class BinaryTree {
     }
 
     public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
 
         public TreeNode(int val) {
             this.val = val;
@@ -405,7 +405,7 @@ public class BinaryTree {
     
     /**
      * 将二叉查找树变为有序的双向链表 迭代解法
-//   * 类似inorder traversal的做法
+     * 类似inorder traversal的做法
      */
     public static TreeNode convertBST2DLL(TreeNode root) {
         if(root == null){
@@ -431,7 +431,7 @@ public class BinaryTree {
             if(old != null){
                 old.right = cur;
             }
-            if(head == null){       // /第一个节点为双向链表头节点
+            if(head == null){       // 第一个节点为双向链表头节点
                 head = cur;
             }
             

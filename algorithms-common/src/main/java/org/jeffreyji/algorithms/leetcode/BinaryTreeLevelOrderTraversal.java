@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import org.jeffreyji.algorithms.basic.BinaryTree.TreeNode;
+
 /**
  * @author: wgji
  * @date：2014年5月16日 上午11:42:21
@@ -32,7 +34,8 @@ public class BinaryTreeLevelOrderTraversal {
         right.left = new TreeNode(15);
         right.right = new TreeNode(7);
 
-        ArrayList<ArrayList<Integer>> res = levelOrder(root);
+        ArrayList<ArrayList<Integer>> res =  new ArrayList<ArrayList<Integer>>();
+        dfs(root, 0, res);
         for (ArrayList<Integer> level : res) {
             for (Integer val : level) {
                 System.out.printf("%d,", val);
@@ -68,5 +71,20 @@ public class BinaryTreeLevelOrderTraversal {
         }
 
         return result;
+    }
+    
+    private static void dfs(TreeNode root, int level, ArrayList<ArrayList<Integer>> ret){
+        if(root == null){
+            return;
+        }
+        
+        // 添加一个新的ArrayList表示新的一层
+        if(level >= ret.size()){
+            ret.add(new ArrayList<Integer>());
+        }
+        
+        ret.get(level).add(root.val);   // 把节点添加到表示那一层的ArrayList里
+        dfs(root.left, level+1, ret);       // 递归处理下一层的左子树和右子树
+        dfs(root.right, level+1, ret);
     }
 }

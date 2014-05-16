@@ -1,5 +1,7 @@
 package org.jeffreyji.algorithms.leetcode; 
 
+import org.jeffreyji.algorithms.basic.BinaryTree.TreeNode;
+
 /** 
  * @author:  wgji
  * @date：2014年5月15日 下午3:30:37 
