@@ -60,10 +60,9 @@ public class BinaryTree {
         r2.right = r5;
         r3.right = r6;
         
-        
+        System.out.println(getNodeNumKthLevel(r1,3));
         System.out.println(isCompleteBinaryTree(r1));
         System.out.println(isCompleteBinaryTreeRec(r1));
-        
     }
 
     public static class TreeNode {
@@ -571,9 +570,7 @@ public class BinaryTree {
         if(r1.val != r2.val){
             return false;
         }
-        boolean leftRes = isSameRec(r1.left, r2.left);      // 比较对应左子树
-        boolean rightRes = isSameRec(r1.right, r2.right); // 比较对应右子树
-        return leftRes && rightRes;
+        return isSameRec(r1.left, r2.left) && isSameRec(r1.right, r2.right);
     }
     
     /**
