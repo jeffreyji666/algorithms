@@ -40,7 +40,6 @@ public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
         TreeNode root = buildTree2(inOrder, postOrder);
         List<Integer> res = BinaryTreeTraversal.postorderTraversal(root);
         System.out.println(res);
-        root = buildTree2(inOrder, postOrder);
         res = BinaryTreeTraversal.inorderTraversal(root);
         System.out.println(res);
     }
