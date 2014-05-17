@@ -61,8 +61,8 @@ public class BinaryTree {
         r3.right = r6;
         
         System.out.println(getNodeNumKthLevel(r1,3));
-        System.out.println(isCompleteBinaryTree(r1));
-        System.out.println(isCompleteBinaryTreeRec(r1));
+        
+        
     }
 
     public static class TreeNode {
@@ -717,8 +717,9 @@ public class BinaryTree {
         }
         
         Stack<TreeNode> stack = new Stack<TreeNode>();
-        Stack<TreeNode> newStack = new Stack<TreeNode>();
         stack.push(root);
+        
+        Stack<TreeNode> newStack = new Stack<TreeNode>();
         TreeNode newRoot = new TreeNode(root.val);
         newStack.push(newRoot);
         
