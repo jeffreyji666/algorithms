@@ -5,7 +5,28 @@ import java.util.Stack;
 /**
  * @author: wgji
  * @date：2014年5月18日 上午2:36:53
- * @comment:
+ * @comment:Given a binary tree, flatten it to a linked list in-place.
+
+For example,
+Given
+
+         1
+        / \
+       2   5
+      / \   \
+     3   4   6
+The flattened tree should look like:
+   1
+    \
+     2
+      \
+       3
+        \
+         4
+          \
+           5
+            \
+             6
  */
 
 public class FlatternBinaryTreeToLinkedList {
@@ -26,11 +47,9 @@ public class FlatternBinaryTreeToLinkedList {
         TreeNode p = root;
 
         while (p != null || !stack.empty()) {
-
             if (p.right != null) {
                 stack.push(p.right);
             }
-
             if (p.left != null) {
                 p.right = p.left;
                 p.left = null;
