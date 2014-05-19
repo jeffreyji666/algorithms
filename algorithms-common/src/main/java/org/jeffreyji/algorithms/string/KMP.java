@@ -1,16 +1,67 @@
 package org.jeffreyji.algorithms.string;
 
-/** 
- * @author:  wgji
- * @date：2014年5月2日 上午12:37:39 
- * @comment: 
+/**
+ * @author: wgji
+ * @date：2014年5月2日 上午12:37:39
+ * @comment:
  */
 
-import java.io.IOException;
-
 public class KMP {
-    public static void main(String args[]) throws IOException {
-        kmp("test", "testtest");
+
+    public static void main(String args[]) {
+        kmp("fdsafdsaabcdabcd", "abcd");
+        kmp("fdsafdsaabcdabcd", "abcd");
+    }
+
+    public static void kmp2(String target, String source) {
+        int sourceLength = source.length();
+        int targetLength = target.length();
+        int[] result = preProcess(source);
+        int j = 0;
+        int k = 0;
+        for (int i = 0; i < targetLength; i++) {
+            // 找到匹配的字符时才执行
+            while (j > 0 && source.charAt(j) != target.charAt(i)) {
+                // 设置为source中合适的位置
+                j = result[j - 1];
+            }
+            // 找到一个匹配的字符
+            if (source.charAt(j) == target.charAt(i)) {
+                j++;
+            }
+            // 匹配到一个，输出结果
+            if (j == sourceLength) {
+                j = result[j - 1];
+                k++;
+                System.out.println("find");
+            }
+        }
+    }
+
+    /**
+     * 预处理
+     * 
+     * @param s
+     * @return
+     */
+    public static int[] preProcess(final String s) {
+        int size = s.length();
+        int[] result = new int[size];
+        result[0] = 0;
+        int j = 0;
+        // 循环计算
+        for (int i = 1; i < size; i++) {
+            while (j > 0 && s.charAt(j) != s.charAt(i)) {
+                j = result[j];
+            }
+            if (s.charAt(j) == s.charAt(i)) {
+                j++;
+            }
+            // 找到一个结果
+            result[i] = j;
+        }
+        System.out.println(java.util.Arrays.toString(result));
+        return result;
     }
 
     // getNext();
@@ -25,17 +76,17 @@ public class KMP {
             if (j == -1 || x[i] == x[j]) {
                 ++i;
                 ++j;
-                if (x[i] == x[j])
+                if (x[i] == x[j]) {
                     next[i] = next[j];
-                else
+                } else {
                     next[i] = j;
-
+                }
             } else {
                 j = next[j];
             }
         }
+        System.out.println(java.util.Arrays.toString(next));
         return next;
-
     }
 
     // KMP
@@ -53,9 +104,10 @@ public class KMP {
                 j = next[j];
             }
         }
-        if (j == p.length())
+        if (j == p.length()) {
             System.out.println(i - p.length());
-        else
+        } else {
             System.out.println("no");
+        }
     }
 }

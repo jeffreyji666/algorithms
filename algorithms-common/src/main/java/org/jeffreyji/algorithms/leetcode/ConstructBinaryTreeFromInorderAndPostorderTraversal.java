@@ -79,6 +79,7 @@ public class ConstructBinaryTreeFromInorderAndPostorderTraversal {
         }
         return -1;
     }
+    
 
     private static TreeNode myBuildTree(int[] inorder, int instart, int inend, int[] postorder, int poststart,
             int postend) {

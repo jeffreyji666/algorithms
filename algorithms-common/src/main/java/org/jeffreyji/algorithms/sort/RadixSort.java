@@ -16,41 +16,37 @@ public class RadixSort {
         System.out.println(Arrays.toString(res));
     }
 
-    public static int[] radixSort(int[] ArrayToSort, int digit) {
+    public static int[] radixSort(int[] a, int digit) {
         // low to high digit
         for (int k = 1; k <= digit; k++) {
             // temp array to store the sort result inside digit
-            int[] tmpArray = new int[ArrayToSort.length];
+            int[] tmp = new int[a.length];
 
             // temp array for countingsort
-            int[] tmpCountingSortArray = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            int[] tmpCountingArray = new int[10];
 
             // CountingSort
-            for (int i = 0; i < ArrayToSort.length; i++) {
+            for (int i = 0; i < a.length; i++) {
                 // split the specified digit from the element
-                int tmpSplitDigit = ArrayToSort[i] / (int) Math.pow(10, k - 1)
-                        - (ArrayToSort[i] / (int) Math.pow(10, k)) * 10;
-                tmpCountingSortArray[tmpSplitDigit] += 1;
+                int tmpSplitDigit = a[i] / (int) Math.pow(10, k - 1) - (a[i] / (int) Math.pow(10, k)) * 10;
+                tmpCountingArray[tmpSplitDigit] += 1;
             }
 
-            for (int m = 1; m < 10; m++) {
-                tmpCountingSortArray[m] += tmpCountingSortArray[m - 1];
+            for (int i = 1; i < tmpCountingArray.length; i++) {
+                tmpCountingArray[i] += tmpCountingArray[i - 1];
             }
 
             // output the value to result
-            for (int n = ArrayToSort.length - 1; n >= 0; n--) {
-                int tmpSplitDigit = ArrayToSort[n] / (int) Math.pow(10, k - 1)
-                        - (ArrayToSort[n] / (int) Math.pow(10, k)) * 10;
-                tmpArray[tmpCountingSortArray[tmpSplitDigit] - 1] = ArrayToSort[n];
-                tmpCountingSortArray[tmpSplitDigit] -= 1;
+            for (int i = a.length - 1; i >= 0; i--) {
+                int tmpSplitDigit = a[i] / (int) Math.pow(10, k - 1) - (a[i] / (int) Math.pow(10, k)) * 10;
+                tmp[tmpCountingArray[tmpSplitDigit] - 1] = a[i];
+                tmpCountingArray[tmpSplitDigit] -= 1;
             }
 
             // copy the digit-inside sort result to source array
-            for (int p = 0; p < ArrayToSort.length; p++) {
-                ArrayToSort[p] = tmpArray[p];
-            }
+            System.arraycopy(tmp, 0, a, 0, tmp.length);
         }
 
-        return ArrayToSort;
+        return a;
     }
 }
