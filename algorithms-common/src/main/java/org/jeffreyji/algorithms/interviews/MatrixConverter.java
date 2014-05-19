@@ -12,7 +12,7 @@ public class MatrixConverter {
                            { 5, 6,  7, 8 }, 
                            { 9, 10, 11,12 }, 
                            { 13,14, 15,16 }};
-        int[][] res = convertMatrix(matrix);
+        int[][] res = convertMatrix2(matrix);
         for (int i = 0; i < res.length; i++) {
             for (int j = 0; j < res[i].length; j++) {
                 if (res[i][j] != 0) {
@@ -24,8 +24,41 @@ public class MatrixConverter {
     }
 
     /**
-     * pinterest面试题,二维数组 对角线输出 两个方向 
-    例如对于数组： 
+     * pinterest面试题,二维数组 对角线输出 两个方向，例如对于数组： 
+    { 1,  2,  3,  4 },  
+    { 5,  6,  7,  8 }, 
+    { 9, 10, 11, 12 },  
+    { 13,14, 15, 16 }, 
+     
+    输出： 
+    13 10 7 4
+    9 6 3
+    5 2
+    1
+    14 11 8
+    15 12
+    16
+     *
+     * @param matrix
+     * @return
+     */
+    public static int[][] convertMatrix2(int[][] matrix) {
+        int[][] res = new int[matrix.length * 2 - 1][matrix.length];
+        for (int len = matrix.length - 1; len >= 0; len--) {
+            for (int i = 0, j = len; i < matrix.length && j >= 0; j--, i++) {
+                res[matrix.length - 1 - len][i] = matrix[j][i];
+            }
+        }
+        for (int len = 1; len < matrix.length; len++) {
+            for (int i = len, j = matrix.length - 1; i < matrix.length && j >= 0; j--, i++) {
+                res[matrix.length - 1 + len][i - len] = matrix[j][i];
+            }
+        }
+        return res;
+    }
+    
+    /**
+     * pinterest面试题,二维数组 对角线输出 两个方向，例如对于数组： 
     { 1,  2,  3,  4 },  
     { 5,  6,  7,  8 }, 
     { 9, 10, 11, 12 },  
