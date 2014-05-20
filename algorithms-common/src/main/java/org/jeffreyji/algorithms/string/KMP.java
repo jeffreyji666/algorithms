@@ -10,7 +10,7 @@ public class KMP {
 
     public static void main(String args[]) {
         kmp("fdsafdsaabcdabcd", "abcd");
-        kmp("fdsafdsaabcdabcd", "abcd");
+        kmp2("fdsafdsaabcdabcd", "abcd");
     }
 
     public static void kmp2(String target, String source) {
@@ -18,7 +18,6 @@ public class KMP {
         int targetLength = target.length();
         int[] result = preProcess(source);
         int j = 0;
-        int k = 0;
         for (int i = 0; i < targetLength; i++) {
             // 找到匹配的字符时才执行
             while (j > 0 && source.charAt(j) != target.charAt(i)) {
@@ -32,7 +31,6 @@ public class KMP {
             // 匹配到一个，输出结果
             if (j == sourceLength) {
                 j = result[j - 1];
-                k++;
                 System.out.println("find");
             }
         }

@@ -1,4 +1,4 @@
-package org.jeffreyji.algorithms.util;
+package org.jeffreyji.algorithms.string;
 
 /** 
  * @author:  wgji
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class SuffixArray {
     public static void main(String[] args) {
-        String s = "bbbbb";
+        String s = "abcdaabcd";
         System.out.println(maxLength(s));
     }
 
@@ -43,8 +43,7 @@ public class SuffixArray {
         for (int i = 0; i < (c1.length > c2.length ? c2.length : c1.length); i++) {
             if (c1[i] == c2[i]) {
                 maxlen++;
-            }
-            if (c1[i] != c2[i]) {
+            } else {
                 return maxlen;
             }
         }
