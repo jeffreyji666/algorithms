@@ -32,21 +32,21 @@ public class LongestConsecutiveSequence {
             }
 
             int tmp = i;
-            int current_max = 1;
+            int currentMax = 1;
             while (hs.containsKey(tmp + 1)) {
-                current_max++;
+                currentMax++;
                 tmp++;
                 hs.put(tmp, 1);
             }
 
             tmp = i;
             while (hs.containsKey(tmp - 1)) {
-                current_max++;
+                currentMax++;
                 tmp--;
                 hs.put(tmp, 1);
             }
 
-            maxl = Math.max(current_max, maxl);
+            maxl = Math.max(currentMax, maxl);
         }
 
         return maxl;
