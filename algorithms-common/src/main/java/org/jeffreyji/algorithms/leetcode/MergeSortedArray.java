@@ -21,22 +21,22 @@ public class MergeSortedArray {
         System.out.println(Arrays.toString(a));
     }
 
-    public static void merge(int A[], int m, int B[], int n) {
-        if (A == null || B == null)
+    public static void merge(int a[], int m, int b[], int n) {
+        if (a == null || b == null){
             return;
+        }
         int idx1 = m - 1;
         int idx2 = n - 1;
         int len = m + n - 1;
         while (idx1 >= 0 && idx2 >= 0) {
-            if (A[idx1] > B[idx2]) {
-                A[len--] = A[idx1--];
+            if (a[idx1] > b[idx2]) {
+                a[len--] = a[idx1--];
             } else {
-                A[len--] = B[idx2--];
+                a[len--] = b[idx2--];
             }
         }
         while (idx2 >= 0) {
-            A[len--] = B[idx2--];
+            a[len--] = b[idx2--];
         }
     }
-
 }

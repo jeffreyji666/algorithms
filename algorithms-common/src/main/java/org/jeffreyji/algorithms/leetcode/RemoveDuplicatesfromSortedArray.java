@@ -31,6 +31,5 @@ public class RemoveDuplicatesfromSortedArray {
         }
         System.out.println(Arrays.toString(a));
         return len;
-
     }
 }
