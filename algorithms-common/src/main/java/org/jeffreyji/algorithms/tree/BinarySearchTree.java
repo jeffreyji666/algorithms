@@ -18,11 +18,14 @@ class TreeNode {
 public class BinarySearchTree {
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
+        TreeNode root = new TreeNode(2);
         root.left = new TreeNode(1);
         // root.right = new TreeNode(3);
 
-        System.out.println(isValidBST(root));
+        System.out.println(isBinarySearchTree2(root,Integer.MIN_VALUE,Integer.MAX_VALUE));
+
+        int[] a = { 1, 3, 2 };
+        System.out.println(checkWhetherBSTFromPostOrderTraversal(a, 0, a.length - 1));
     }
 
     private static int previous = Integer.MIN_VALUE;
@@ -62,5 +65,32 @@ public class BinarySearchTree {
         }
         // 递归判断左右子树是否满足min和max约束条件
         return isBinarySearchTree2(root.left, min, root.val) && isBinarySearchTree2(root.right, root.val, max);
+    }
+
+    public static boolean checkWhetherBSTFromPostOrderTraversal(int data[], int low, int high) {
+        if (low >= high) {
+            return true;
+        }
+        int split = -1;
+        boolean found = false;
+        // to see if the data can be splited as ABC where c is the last one, all members in A < c, B > c
+        for (int i = low; i < high; i++) {
+            if (data[i] > data[high]) {
+                if (split == -1) {
+                    split = i;
+                    found = true;
+                }
+            }
+            if (data[i] < data[high] && split != -1) {
+                return false;
+            }
+        }
+        // only A < c or B > c;
+        if (!found) {
+            return checkWhetherBSTFromPostOrderTraversal(data, low, high - 1);
+        } else { // recursive way
+            return checkWhetherBSTFromPostOrderTraversal(data, low, split - 1)
+                    && checkWhetherBSTFromPostOrderTraversal(data, split, high - 1);
+        }
     }
 }
