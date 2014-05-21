@@ -1,96 +1,24 @@
 package org.jeffreyji.algorithms.string;
 
+import java.util.Arrays;
+
 /**
  * @author: wgji
- * @date：2014年5月2日 上午12:37:39
+ * @date：2014年5月21日 下午3:09:43
  * @comment:
  */
 
 public class KMP {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         kmp("fdsafdsaabcdabcd", "abcd");
-        kmp2("fdsafdsaabcdabcd", "abcd");
     }
 
-    public static void kmp2(String target, String source) {
-        int sourceLength = source.length();
-        int targetLength = target.length();
-        int[] result = preProcess(source);
-        int j = 0;
-        for (int i = 0; i < targetLength; i++) {
-            // 找到匹配的字符时才执行
-            while (j > 0 && source.charAt(j) != target.charAt(i)) {
-                // 设置为source中合适的位置
-                j = result[j - 1];
-            }
-            // 找到一个匹配的字符
-            if (source.charAt(j) == target.charAt(i)) {
-                j++;
-            }
-            // 匹配到一个，输出结果
-            if (j == sourceLength) {
-                j = result[j - 1];
-                System.out.println("find");
-            }
-        }
-    }
-
-    /**
-     * 预处理
-     * 
-     * @param s
-     * @return
-     */
-    public static int[] preProcess(final String s) {
-        int size = s.length();
-        int[] result = new int[size];
-        result[0] = 0;
-        int j = 0;
-        // 循环计算
-        for (int i = 1; i < size; i++) {
-            while (j > 0 && s.charAt(j) != s.charAt(i)) {
-                j = result[j];
-            }
-            if (s.charAt(j) == s.charAt(i)) {
-                j++;
-            }
-            // 找到一个结果
-            result[i] = j;
-        }
-        System.out.println(java.util.Arrays.toString(result));
-        return result;
-    }
-
-    // getNext();
-    public static int[] getNext(char x[]) {
-        int next[] = new int[x.length];
-        next[0] = -1;
-
-        int i = 0;
-        int j = -1;
-        while (i < next.length - 1) // take care
-        {
-            if (j == -1 || x[i] == x[j]) {
-                ++i;
-                ++j;
-                if (x[i] == x[j]) {
-                    next[i] = next[j];
-                } else {
-                    next[i] = j;
-                }
-            } else {
-                j = next[j];
-            }
-        }
-        System.out.println(java.util.Arrays.toString(next));
-        return next;
-    }
-
-    // KMP
     public static void kmp(String t, String p) {
-        char ch[] = p.toCharArray();
-        int next[] = getNext(ch);
+        if (t == null || t.length() == 0 || p == null || p.length() == 0) {
+            return;
+        }
+        int next[] = getNext(p);
 
         int i = 0;
         int j = 0;
@@ -104,8 +32,30 @@ public class KMP {
         }
         if (j == p.length()) {
             System.out.println(i - p.length());
-        } else {
-            System.out.println("no");
+            System.out.println(t.substring(i - p.length(), i));
         }
     }
+
+    public static int[] getNext(String s) {
+        if (s == null || s.length() == 0) {
+            return null;
+        }
+
+        int[] next = new int[s.length() + 1];
+        next[0] = -1;
+        int i = 0;
+        int j = -1;
+        while (i < s.length()) {
+            if (j == -1 || s.charAt(i) == s.charAt(j)) {
+                i++;
+                j++;
+                next[i] = j;
+            } else {
+                j = next[j];
+            }
+        }
+        System.out.println(Arrays.toString(next));
+        return next;
+    }
+
 }
