@@ -88,15 +88,17 @@ public class SymmetricTree {
                 return false;
             }
 
-            if (lnode != null) {
-                if (lnode.val != rnode.val) {
-                    return false;
-                }
-                left.offer(lnode.left);
-                left.offer(lnode.right);
-                right.offer(rnode.right);
-                right.offer(rnode.left);
+            if (lnode == null && rnode == null) {
+                continue;
             }
+            if (lnode.val != rnode.val) {
+                return false;
+            }
+            left.offer(lnode.left);
+            left.offer(lnode.right);
+            right.offer(rnode.right);
+            right.offer(rnode.left);
+
         }
         return true;
     }
