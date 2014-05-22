@@ -18,6 +18,7 @@ public class SearchInRotatedSortArray {
         int[] b = { 6, 7, 0, 1, 2, 4, 5 };
         System.out.println(search(b, 1));
         System.out.println(search(b, 6));
+        System.out.println(search(b, 3));
     }
 
     public static int search(int[] a, int target) {

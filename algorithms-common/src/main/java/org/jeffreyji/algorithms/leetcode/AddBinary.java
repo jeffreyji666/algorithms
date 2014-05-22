@@ -14,7 +14,6 @@ public class AddBinary {
         String c = "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011";
         System.out.println(addBinary(c, d));
         System.out.println(addBinary2(c, d));
-
     }
 
     public static String addBinary(String a, String b) {
@@ -26,7 +25,6 @@ public class AddBinary {
         BigInteger sum = ai.add(bi);
 
         return sum.toString(2);
-
     }
 
     public static String addBinary2(String a, String b) {

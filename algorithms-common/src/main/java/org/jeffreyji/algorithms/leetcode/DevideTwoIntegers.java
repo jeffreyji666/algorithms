@@ -17,7 +17,7 @@ public class DevideTwoIntegers {
             return 0;
         }
 
-        boolean tag = ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)) ? true : false;
+        boolean tag = (dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0);
 
         int result = 0;
         dividend = Math.abs(dividend);

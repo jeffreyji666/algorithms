@@ -8,8 +8,6 @@ package org.jeffreyji.algorithms.leetcode;
 
 public class Atoi {
     public int atoi(String str) {
-        // Start typing your Java solution below
-        // DO NOT write main() function
         if (str == null) {
             return 0;
         }

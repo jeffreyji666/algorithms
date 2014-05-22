@@ -1,5 +1,7 @@
 package org.jeffreyji.algorithms.leetcode;
 
+import java.util.Arrays;
+
 /**
  * @author: wgji
  * @date：2014年5月1日 下午5:16:58
@@ -10,22 +12,19 @@ package org.jeffreyji.algorithms.leetcode;
  */
 public class SearchForRange {
     public static void main(String[] args) {
-        int[] a = { 5, 7, 7, 8, 8, 8, 10 };
+        int[] a = { 5, 6, 6, 7, 7, 7, 8, 8, 8, 10 };
         int[] res = searchRange(a, 8);
-        for (int item : res) {
-            System.out.println(item);
-        }
+        System.out.println(Arrays.toString(res));
     }
 
     public static int[] searchRange(int[] a, int target) {
-        int start, end, mid;
-        int[] bound = new int[2];
+        int[] bound = { -1, -1 };
 
         // search for left bound
-        start = 0;
-        end = a.length - 1;
+        int start = 0;
+        int end = a.length - 1;
         while (start + 1 < end) {
-            mid = (end + start) / 2;
+            int mid = (end + start) / 2;
             if (a[mid] == target) {
                 end = mid;
             } else if (a[mid] < target) {
@@ -39,7 +38,6 @@ public class SearchForRange {
         } else if (a[end] == target) {
             bound[0] = end;
         } else {
-            bound[0] = bound[1] = -1;
             return bound;
         }
 
@@ -47,7 +45,7 @@ public class SearchForRange {
         start = 0;
         end = a.length - 1;
         while (start + 1 < end) {
-            mid = (end + start) / 2;
+            int mid = (end + start) / 2;
             if (a[mid] == target) {
                 start = mid;
             } else if (a[mid] < target) {
@@ -61,7 +59,6 @@ public class SearchForRange {
         } else if (a[start] == target) {
             bound[1] = start;
         } else {
-            bound[0] = bound[1] = -1;
             return bound;
         }
 
