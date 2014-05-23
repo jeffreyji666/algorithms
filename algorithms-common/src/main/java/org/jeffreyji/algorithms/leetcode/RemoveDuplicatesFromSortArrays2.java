@@ -1,7 +1,5 @@
 package org.jeffreyji.algorithms.leetcode; 
 
-import java.util.Arrays;
-
 /** 
  * @author:  wgji
  * @date：2014年5月23日 下午11:44:48 
