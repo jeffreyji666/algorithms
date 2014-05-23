@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Your function should return length = 2, and A is now [1,2].
  */
 
-public class RemoveDuplicatesfromSortedArray {
+public class RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
         int[] a = { 1, 1, 2 };
         System.out.println(removeDuplicates(a));
