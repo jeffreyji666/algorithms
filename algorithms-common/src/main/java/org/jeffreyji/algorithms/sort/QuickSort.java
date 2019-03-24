@@ -10,11 +10,11 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static void main(String[] args) {
-        int[] x = { 2, 8, 7, 1, 3, 5, 6, 4 };
-        quickSort1(x, 0, x.length - 1);
-        System.out.println("*********************");
+//        int[] x = { 2, 8, 7, 1, 3, 5, 6, 4 };
+//        quickSort1(x, 0, x.length - 1);
+//        System.out.println("*********************");
 
-        int[] y = { 3, 2, 4, 1, 6 };
+        int[] y = {10, 5, 3, 2, 4, 1, 6, 0, -1, 8};
         quickSort2(y, 0, y.length - 1);
     }
 
@@ -62,7 +62,7 @@ public class QuickSort {
         a[left] = temp;
 
         System.out.println(Arrays.toString(a));
-
+        System.out.println("left:" + left + ",a[left]:" + a[left]);
         return left;
     }
 

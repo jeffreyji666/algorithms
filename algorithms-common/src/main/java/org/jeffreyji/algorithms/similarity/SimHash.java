@@ -14,8 +14,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.wltea.analyzer.IKSegmentation;
-import org.wltea.analyzer.Lexeme;
+//import org.wltea.analyzer.IKSegmentation;
+//import org.wltea.analyzer.Lexeme;
 
 public class SimHash {
 
@@ -51,29 +51,29 @@ public class SimHash {
         // 1、中文分词，分词器采用 IKAnalyzer3.2.8 ，仅供演示使用，新版 API 已变化。
         StringReader reader = new StringReader(this.tokens);
         // 当为true时，分词器进行最大词长切分
-        IKSegmentation ik = new IKSegmentation(reader, true);
-        Lexeme lexeme = null;
-        String word = null;
-        while ((lexeme = ik.next()) != null) {
-            word = lexeme.getLexemeText();
-            // 注意停用词会被干掉
-            // System.out.println(word);
-            // 2、将每一个分词hash为一组固定长度的数列.比如 64bit 的一个整数.
-            BigInteger t = this.hash(word);
-            for (int i = 0; i < this.hashbits; i++) {
-                BigInteger bitmask = new BigInteger("1").shiftLeft(i);
-                // 3、建立一个长度为64的整数数组(假设要生成64位的数字指纹,也可以是其它数字),
-                // 对每一个分词hash后的数列进行判断,如果是1000...1,那么数组的第一位和末尾一位加1,
-                // 中间的62位减一,也就是说,逢1加1,逢0减1.一直到把所有的分词hash数列全部判断完毕.
-                if (t.and(bitmask).signum() != 0) {
-                    // 这里是计算整个文档的所有特征的向量和
-                    // 这里实际使用中需要 +- 权重，比如词频，而不是简单的 +1/-1，
-                    v[i] += 1;
-                } else {
-                    v[i] -= 1;
-                }
-            }
-        }
+//        IKSegmentation ik = new IKSegmentation(reader, true);
+//        Lexeme lexeme = null;
+//        String word = null;
+//        while ((lexeme = ik.next()) != null) {
+//            word = lexeme.getLexemeText();
+//            // 注意停用词会被干掉
+//            // System.out.println(word);
+//            // 2、将每一个分词hash为一组固定长度的数列.比如 64bit 的一个整数.
+//            BigInteger t = this.hash(word);
+//            for (int i = 0; i < this.hashbits; i++) {
+//                BigInteger bitmask = new BigInteger("1").shiftLeft(i);
+//                // 3、建立一个长度为64的整数数组(假设要生成64位的数字指纹,也可以是其它数字),
+//                // 对每一个分词hash后的数列进行判断,如果是1000...1,那么数组的第一位和末尾一位加1,
+//                // 中间的62位减一,也就是说,逢1加1,逢0减1.一直到把所有的分词hash数列全部判断完毕.
+//                if (t.and(bitmask).signum() != 0) {
+//                    // 这里是计算整个文档的所有特征的向量和
+//                    // 这里实际使用中需要 +- 权重，比如词频，而不是简单的 +1/-1，
+//                    v[i] += 1;
+//                } else {
+//                    v[i] -= 1;
+//                }
+//            }
+//        }
 
         BigInteger fingerprint = new BigInteger("0");
         StringBuffer simHashBuffer = new StringBuffer();
