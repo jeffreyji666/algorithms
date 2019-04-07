@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * @author jiwengang
  * @since 2019/2/23 下午5:37
+ * -Xms20m -Xmx20m -Xmn10m -XX:+UseConcMarkSweepGC -XX:+PrintGCDetails -XX:+PrintHeapAtGC -XX:+PrintGCTimeStamps
  */
 public class PromotionFailedOOM {
 

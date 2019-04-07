@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class KMP {
 
     public static void main(String[] args) {
-        kmp("fdsafdsaabcdabcd", "abcd");
+        kmp("121421413213211abababca", "abababca");
     }
 
     public static void kmp(String t, String p) {
@@ -50,9 +50,12 @@ public class KMP {
                 i++;
                 j++;
                 next[i] = j;
+                System.out.println("if i:" + i + ",next[i]:" + next[i] + ",j:" + j);
             } else {
+                System.out.println("else next[j]:" + next[j] + ",j:" + j);
                 j = next[j];
             }
+
         }
         System.out.println(Arrays.toString(next));
         return next;

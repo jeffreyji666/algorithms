@@ -6,10 +6,11 @@ import java.util.concurrent.atomic.AtomicReference;
  * ConcurrentStack
  * <p/>
  * Nonblocking stack using Treiber's algorithm
- * 
+ *
  * @author Brian Goetz and Tim Peierls
  */
 public class ConcurrentStack<E> {
+
     AtomicReference<Node<E>> top = new AtomicReference<Node<E>>();
 
     public void push(E item) {
@@ -26,14 +27,16 @@ public class ConcurrentStack<E> {
         Node<E> newHead;
         do {
             oldHead = top.get();
-            if (oldHead == null)
+            if (oldHead == null) {
                 return null;
+            }
             newHead = oldHead.next;
         } while (!top.compareAndSet(oldHead, newHead));
         return oldHead.item;
     }
 
     private static class Node<E> {
+
         public final E item;
         public Node<E> next;
 

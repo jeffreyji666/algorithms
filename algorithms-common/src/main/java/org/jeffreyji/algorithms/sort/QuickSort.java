@@ -47,19 +47,19 @@ public class QuickSort {
     }
 
     private static int partition(int[] a, int left, int right) {
-        int temp = a[left];
+        int pivot = a[left];
         while (left < right) {
-            while (left < right && a[right] >= temp) {
+            while (left < right && a[right] >= pivot) {
                 --right;
             }
             a[left] = a[right];
 
-            while (left < right && a[left] <= temp) {
+            while (left < right && a[left] <= pivot) {
                 ++left;
             }
             a[right] = a[left];
         }
-        a[left] = temp;
+        a[left] = pivot;
 
         System.out.println(Arrays.toString(a));
         System.out.println("left:" + left + ",a[left]:" + a[left]);
